@@ -1,0 +1,66 @@
+//queue implementation
+
+#include<stdio.h>
+
+#define n 5
+
+int a[n];
+int f = -1;
+int r= -1;
+
+void enque(int x)
+{
+    if(f==-1&&r==-1)
+    {
+        f=0;
+        r=0;
+       a[r] = x;
+     printf("the inserted element  is %d\n",a[r]);
+    }
+    
+    
+    else if((r + 1)%n == f)
+    {
+    printf("queue is full\n");
+    }
+    else
+    {
+    r = (r+1)%n;
+    a[r] = x;
+     printf("the inserted element  is %d\n",a[r]);
+    }
+}
+
+int deque()
+{
+    if(f==-1&&r==-1)
+    {
+        printf("empty");
+        
+    }
+   
+    printf("the removed element is %d\n",a[f]);
+    
+    
+    if(f==n - 1)
+    {
+          f = -1;
+    }
+  
+    f++;
+}
+
+int main()
+{
+    enque(9);
+    enque(5);
+    enque(6);
+    enque(3);
+    enque(1);
+    deque();
+    deque();
+    enque(2);
+    enque(56);
+    enque(8);
+    return 0;
+}
